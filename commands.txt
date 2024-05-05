@@ -1,0 +1,44 @@
+creation du projet:				laravel new l7etta  
+
+creation model et table: 			php artisan make:model Name -m
+
+Migration:					php artisan make:migrate
+
+installation Filament(admin panel): 		composer require filament/filament:"^3.2" -W
+ 						php artisan filament:install --panels
+
+create user || admin:					php artisan make:filament-user
+
+creation user ressource:			php artisan make:filament-resource User
+
+creation category ressource avec attribut:	php artisan make:filament-resource Customer --generate
+
+affichage image dans panel: 			php artisan storage:link //apres dans .env ajouter le port
+
+managing relation:				php artisan make:filament-relation-manager OrderRessource address 								street_address
+
+stats:						php artisan make:filament-widget OrderStats --resource=OrderResource
+
+latest orders:					php artisan make:filament-widget LatestOrders --table
+
+install tailwindcss:				npm install -D tailwindcss postcss autoprefixer
+						npx tailwindcss init -p
+
+install preline(ui tailwin components):		npm install preline
+
+then compile all assets:			npm run dev
+
+install livewire:				composer require livewire/livewire
+
+create livewire template:			php artisan livewire:layout
+
+create livewire component:			php artisan make:livewire HomePage
+
+fix design:					npm run build
+
+install sweet alerts(toasts):			composer require jantinnerezo/livewire-alert
+
+configurer stripe:				.env file => STRIPE_SECRET = secret key
+						composer require stripe/stripe-php
+
+send email to customer after success:		php artisan make:mail OrderPlaced --markdown=mail.orders.placed
