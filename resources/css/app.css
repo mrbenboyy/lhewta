@@ -1,7 +1,157 @@
+@import url('https://fonts.cdnfonts.com/css/blueberry');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 #nprogress .bar {
-    background: rgb(255, 0, 0) !important;
+    background: rgb(241, 237, 12) !important;
 }
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+    display: block;
+    position: fixed;
+    z-index: 1031;
+    top: 15px;
+    right: 15px;
+}
+
+#nprogress .spinner-icon {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+
+    border: solid 2px transparent;
+    border-top-color: #29d;
+    border-left-color: #29d;
+    border-radius: 50%;
+
+    -webkit-animation: nprogress-spinner 400ms linear infinite;
+    animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+    overflow: hidden;
+    position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+    position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes nprogress-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#hero {
+    background-size: 100%;
+}
+
+
+
+/* Webkit-based browsers (Chrome, Safari, etc.) */
+input[type='range']::-webkit-slider-thumb {
+    appearance: none;
+    background: white;
+    /* Change thumb color to white */
+    height: 16px;
+    /* Height of the thumb */
+    width: 16px;
+    /* Width of the thumb */
+    border-radius: 50%;
+    /* Makes it circular */
+    cursor: pointer;
+}
+
+/* Firefox */
+input[type='range']::-moz-range-thumb {
+    background: white;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Internet Explorer */
+input[type='range']::-ms-thumb {
+    background: white;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Customize checkbox appearance for Webkit-based browsers (Chrome, Safari, etc.) */
+input[type='checkbox'] {
+    -webkit-appearance: none;
+    /* Removes default checkbox style */
+    appearance: none;
+    /* Ensures cross-browser compatibility */
+    width: 16px;
+    /* Set the width of the checkbox */
+    height: 16px;
+    /* Set the height of the checkbox */
+    background-color: #fff;
+    /* Default background color */
+    border: 1px solid #ccc;
+    /* Border color */
+    border-radius: 2px;
+    /* Optional: rounded corners */
+    cursor: pointer;
+    /* Change cursor to pointer */
+}
+
+input[type='checkbox']:checked {
+    background-color: yellow;
+    /* Color when checkbox is checked */
+    border-color: yellow;
+    /* Border color when checked */
+}
+
+/* For adding a checkmark when checked */
+input[type='checkbox']::after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    /* top: 2px; */
+    left: 4px;
+    bottom: 4px;
+    width: 6px;
+    height: 12px;
+    border: solid #1e3a8a;
+    /* Checkmark color */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    /* Initially invisible */
+}
+
+input[type='checkbox']:checked::after {
+    opacity: 1;
+    /* Make the checkmark visible when checked */
+}
+
+/* Markdown Style */
+

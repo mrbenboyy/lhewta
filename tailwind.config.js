@@ -9,7 +9,12 @@ export default {
     ],
     darkMode: "false",
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                blueberry: ["Blueberry", "sans-serif"],
+                poppins: ["Poppins", "sans-serif"],
+            },
+        },
     },
     plugins: [require("preline/plugin")],
 };

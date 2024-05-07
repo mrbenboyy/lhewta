@@ -1,28 +1,19 @@
-<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+<div class="w-full bg-yellow-500 max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
 
             @foreach ($categories as $category)
-                <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                    href="products?selected_categories[0]={{ $category->id }}" wire:key="{{ $category->id }}">
-                    <div class="p-4 md:p-5">
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center">
-                                <img class="h-[5rem] w-[5rem]" src="{{ url('storage', $category->image) }}"
-                                    alt="{{ $category->name }}">
-                                <div class="ms-3">
-                                    <h3
-                                        class="group-hover:text-blue-600 text-2xl font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
-                                        {{ $category->name }}
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="ps-3">
-                                <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="m9 18 6-6-6-6" />
-                                </svg>
+                <a wire:navigate href="products?selected_categories[0]={{ $category->id }}"
+                    class="hover:scale-105 duration-300">
+                    <div wire:key='{{ $category->id }}'
+                        class="relative flex flex-grow !flex-row  items-center justify-center rounded-[10px] border-[1px] border-white bg-white bg-clip-border shadow-md shadow-[#1e3a8a] dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none bg-cover bg-center hover:border-blue-900"
+                        style="background-image: url('{{ url('storage', $category->image) }}')">
+                        <!-- Semi-transparent overlay to reduce background image visibility -->
+                        <div class="absolute inset-0 bg-black opacity-50 rounded-[10px]"></div>
+                        <div class="ml-[18px] z-10 flex h-[90px] w-auto flex-row items-center">
+                            <div class="h-50 mx-auto px-5 flex w-auto flex-col">
+                                <p class="font-blueberry text-xl text-white active:text-yellow-500">
+                                    {{ $category->name }}</p>
                             </div>
                         </div>
                     </div>
